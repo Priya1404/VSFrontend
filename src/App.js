@@ -1,8 +1,19 @@
 import { PipelineToolbar } from './toolbar';
 import { PipelineUI } from './ui';
-import { SubmitButton } from './submit';
+import SubmitButton from './submit';
+import { useStore } from './store'; // Import the Zustand store
 
 function App() {
+
+  // Access nodes and edges from Zustand store
+  const { nodes, edges } = useStore((state) => ({
+    nodes: state.nodes,
+    edges: state.edges,
+  }));
+
+  console.log('Nodes:', nodes);
+console.log('Edges:', edges);
+
   return (
     <div className="flex flex-col h-screen font-sans">
       <header className="bg-gray-800 text-white text-center p-4 border-b border-gray-700">
@@ -17,7 +28,7 @@ function App() {
         </section>
       </main>
       <footer className="bg-gray-800 text-white text-center border-t border-gray-700">
-        <SubmitButton />
+        <SubmitButton nodes={nodes} edges={edges}/>
       </footer>
     </div>
   );
