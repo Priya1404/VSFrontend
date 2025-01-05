@@ -1,18 +1,18 @@
-import { PipelineToolbar } from './toolbar';
-import { PipelineUI } from './ui';
-import SubmitButton from './submit';
-import { useStore } from './store'; // Import the Zustand store
+import { PipelineToolbar } from './components/Toolbar';
+import { PipelineUI } from './components/UI';
+import SubmitButton from './features/SubmitButton';
+import { useStore } from './store/NodeStore';
 
 function App() {
 
-  // Access nodes and edges from Zustand store
+  // We are accessing the nodes and edges from Zustand store
   const { nodes, edges } = useStore((state) => ({
     nodes: state.nodes,
     edges: state.edges,
   }));
 
   console.log('Nodes:', nodes);
-console.log('Edges:', edges);
+  console.log('Edges:', edges);
 
   return (
     <div className="flex flex-col h-screen font-sans">

@@ -15,9 +15,9 @@ export const GenericNode = ({ id, data, config }) => {
     height: 'auto',
   });
 
-  const textAreaRef = useRef(null);  // Reference to the text area element
+  const textAreaRef = useRef(null); 
 
-  // Handle content changes and update state
+  // Handling content changes and update state
   const handleChange = (key) => (e) => {
     const newValue = e.target.value;
     setState((prev) => ({ ...prev, [key]: newValue }));
@@ -35,14 +35,13 @@ export const GenericNode = ({ id, data, config }) => {
   // Dynamically adjust the node height and the textarea height
   useEffect(() => {
     if (textAreaRef.current) {
-      textAreaRef.current.style.height = 'auto'; // Reset height to auto
-      textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`; // Adjust the height based on content
+      textAreaRef.current.style.height = 'auto'; 
+      textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`; 
     }
 
-    // Adjust outer node height to fit the textarea content + padding
     setNodeStyle((prev) => ({
       ...prev,
-      height: `${Math.max(200, textAreaRef.current?.scrollHeight + 75 || 150)}px`, // Add 40px to account for padding
+      height: `${Math.max(200, textAreaRef.current?.scrollHeight + 75 || 150)}px`,
     }));
   }, [state.text]);  // Trigger when the text content changes
 
@@ -51,11 +50,10 @@ export const GenericNode = ({ id, data, config }) => {
       className="relative border border-gray-300 p-2 bg-white shadow-md rounded-md"
       style={{
         ...nodeStyle, // Apply dynamic styles (height & width)
-        minHeight: '200px', // Minimum height to prevent shrinking
-        maxHeight: '500px', // Maximum height to avoid excessive growth
+        minHeight: '200px', 
+        maxHeight: '500px', 
       }}
     >
-      {/* Existing Handles */}
       {config.handles.map((handle, index) => (
         <Handle
           key={`${id}-${index}`}
@@ -66,7 +64,6 @@ export const GenericNode = ({ id, data, config }) => {
         />
       ))}
 
-      {/* Variable Handles - created dynamically based on user input */}
       {variables.map((variable, index) => (
         <Handle
           key={`${id}-var-${variable}`}
@@ -106,11 +103,11 @@ export const GenericNode = ({ id, data, config }) => {
                   onChange={handleChange(field.key)}
                   className="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                   style={{
-                    resize: 'none', // Disable manual resizing, but allow automatic expansion
-                    width: '100%', // Ensure full width is used
-                    minHeight: '60px', // Minimum height for visibility
-                    height: 'auto', // Let the height be dynamic
-                    overflow: 'hidden', // Hide scrollbar
+                    resize: 'none', // Disabling manual resizing, but allow automatic expansion
+                    width: '100%', 
+                    minHeight: '60px', 
+                    height: 'auto', 
+                    overflow: 'hidden',
                   }}
                 />
               )}

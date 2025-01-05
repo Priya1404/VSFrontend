@@ -9,7 +9,7 @@ import {
     mathNodeConfig, 
     timerNodeConfig, 
     loopNodeConfig 
-  } from './nodeConfigs';
+  } from './NodeConfigs';
   
 export const InputNode = (props) => <GenericNode {...props} config={inputNodeConfig} />;
 export const LLMNode = (props) => <GenericNode {...props} config={llmNodeConfig} />;

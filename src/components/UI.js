@@ -1,8 +1,8 @@
 import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
-import { useStore } from './store';
+import { useStore } from '../store/NodeStore';
 import { shallow } from 'zustand/shallow';
-import { InputNode, LLMNode, OutputNode, TextNode, DecisionNode, MathNode, APINode, LoopNode, TimerNode } from './nodes/nodeDetails';
+import { InputNode, LLMNode, OutputNode, TextNode, DecisionNode, MathNode, APINode, LoopNode, TimerNode } from '../features/nodes/NodeDetails';
 
 import 'reactflow/dist/style.css';
 

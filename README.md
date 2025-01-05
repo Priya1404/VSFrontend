@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# VectorShift Technical Assessment Solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains my solution to the VectorShift frontend technical assessment. The solution includes a React-based frontend and a Python/FastAPI backend, showcasing clean architecture, node abstraction, styling, and backend integration.
 
-## Available Scripts
+## **Getting Started**
 
-In the project directory, you can run:
+Follow these instructions to run the application and review the solution.
 
-### `npm start`
+### **Frontend**
+1. Navigate to the `/frontend` directory.
+2. Install dependencies:
+    npm install
+3. Start the development server:  
+   npm start
+4. Access the frontend at http://localhost:3000.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Backend **
+1. Navigate to the /backend directory.
+2. Install backend dependencies:
+    pip install fastapi uvicorn
+3. Run the backend server:
+    uvicorn main:app --reload
+4. The backend will be accessible at http://localhost:8000.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Solution Overview**
 
-### `npm test`
+### **Part 1: Node Abstraction**
+1. Refactored the nodes folder into a reusable abstraction for creating nodes.
+2. Added five new example nodes to demonstrate the abstraction’s flexibility.
+ 
+### **Part 2: Styling**
+1. Styled all frontend components using Tailwind CSS for a clean, consistent design.
+2. Enhanced the user experience with hover effects, dynamic sizing, and responsive layouts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Part 3: Text Node Logic**
+1. Improved the Text Node functionality:
+2. Dynamically adjusts node size based on text input.
+3. Supports defining variables with double curly brackets ({{ variable_name }}), creating Handles dynamically for these variables.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### **Part 4: Backend Integration**
+1. Connected the frontend to the /pipelines/parse backend endpoint:
+2. Sends nodes and edges data from the frontend to the backend on submission.
+3. The backend processes the data to calculate:
+    a. Number of nodes and edges.
+    b. Whether the graph is a Directed Acyclic Graph (DAG).
+4. Displays the backend response in a user-friendly alert.
